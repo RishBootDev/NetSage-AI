@@ -1,0 +1,24 @@
+NetSage deterministic rule checker
+Total findings: 18
+Counts by check:
+  - duplicate_ip: 2
+  - gateway_mismatch: 2
+  - interface_down: 4
+  - missing_route: 4
+  - missing_vlan: 5
+  - wrong_mask: 1
+Required checks covered: duplicate_ip, gateway_mismatch, interface_down, missing_route, missing_vlan, wrong_mask
+
+Sample findings:
+  - [High] NET-001 interface_down: Required interface is down or administratively disabled.
+  - [Medium] NET-008 missing_vlan: VLAN membership, trunk allowance, native VLAN, or encapsulation evidence needs correction.
+  - [Low] NET-010 interface_down: Required interface is down or administratively disabled.
+  - [High] NET-012 missing_route: Routing evidence indicates a missing, suppressed, or unreachable route.
+  - [Medium] NET-013 missing_vlan: VLAN membership, trunk allowance, native VLAN, or encapsulation evidence needs correction.
+  - [High] NET-015 missing_route: Routing evidence indicates a missing, suppressed, or unreachable route.
+  - [Low] NET-019 missing_vlan: VLAN membership, trunk allowance, native VLAN, or encapsulation evidence needs correction.
+  - [High] NET-020 gateway_mismatch: Default gateway appears outside the host subnet.
+  - [High] NET-023 duplicate_ip: Duplicate IP address evidence found in lab output.
+  - [High] NET-025 missing_vlan: VLAN membership, trunk allowance, native VLAN, or encapsulation evidence needs correction.
+  - [High] SNAPSHOT gateway_mismatch: PC-BRANCH-01 gateway 10.1.1.30 is outside 10.1.1.48/28.
+  - [Medium] SNAPSHOT wrong_mask: PC-LAB-01 has mask 255.255.0.0 but expected 255.255.255.0.

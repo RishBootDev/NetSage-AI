@@ -1,0 +1,77 @@
+{
+  "description": "Structured sample facts used by the deterministic NetSage rule checker.",
+  "hosts": [
+    {
+      "name": "PC-FIN-01",
+      "ip": "192.168.40.25",
+      "mask": "255.255.255.0",
+      "gateway": "192.168.40.1",
+      "vlan": 40
+    },
+    {
+      "name": "PC-SALES-01",
+      "ip": "192.168.10.45",
+      "mask": "255.255.255.0",
+      "gateway": "192.168.10.1",
+      "vlan": 10
+    },
+    {
+      "name": "PC-SALES-02",
+      "ip": "192.168.10.45",
+      "mask": "255.255.255.0",
+      "gateway": "192.168.10.1",
+      "vlan": 10
+    },
+    {
+      "name": "PC-BRANCH-01",
+      "ip": "10.1.1.50",
+      "mask": "255.255.255.240",
+      "gateway": "10.1.1.30",
+      "vlan": 20
+    },
+    {
+      "name": "PC-LAB-01",
+      "ip": "172.16.5.18",
+      "mask": "255.255.0.0",
+      "expected_mask": "255.255.255.0",
+      "gateway": "172.16.5.1",
+      "vlan": 60
+    }
+  ],
+  "interfaces": [
+    {
+      "device": "R1",
+      "name": "GigabitEthernet0/0.30",
+      "status": "administratively down",
+      "required": true
+    },
+    {
+      "device": "SW1",
+      "name": "Vlan1",
+      "status": "shutdown",
+      "required": true
+    },
+    {
+      "device": "SW1",
+      "name": "FastEthernet0/24",
+      "status": "up",
+      "mode": "trunk",
+      "allowed_vlans": [10, 30, 40],
+      "required_vlans": [10, 20, 30, 40]
+    }
+  ],
+  "routes": [
+    {
+      "device": "R2",
+      "destination": "172.16.0.0/16",
+      "next_hop": "10.0.0.5",
+      "reachable": false
+    },
+    {
+      "device": "R2",
+      "destination": "10.10.0.0/16",
+      "required": true,
+      "present": false
+    }
+  ]
+}
